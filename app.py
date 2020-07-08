@@ -30,9 +30,10 @@ app = Flask(__name__)
 MODEL_PATH = 'vgg19.h5'
 
 # Load your trained model
+# model=load_model(MODEL_PATH,compile=False)
 model = load_model(MODEL_PATH)
-model.compile()
-model._make_predict_function()          
+# model.compile()
+model._make_predict_function() 
 # Necessary
 
 
@@ -80,7 +81,6 @@ def upload():
         result = str(pred_class[0][0][1])               # Convert to string
         return result
     return None
-
 
 if __name__ == '__main__':
     app.run(debug=True)
